@@ -1,7 +1,3 @@
-Here’s the updated README with a section for using Locust to test the server performance:
-
----
-
 # MNIST Handwritten Digits Classification and Inference Server
 
 ## Overview
@@ -14,6 +10,7 @@ This project, developed by Mohammed Shehab, presents a neural network training p
 - [Usage](#usage)
 - [Model Deployment](#model-deployment)
 - [Performance Testing with Locust](#performance-testing-with-locust)
+- [Experiment Tracking with MLflow](#experiment-tracking-with-mlflow)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
@@ -78,6 +75,28 @@ You can use Locust to test the performance of the FastAPI inference server:
    ```
    Open your browser and go to `http://localhost:8089`. Enter the number of users and spawn rate to simulate load on the server. Locust will provide insights into response times, throughput, and error rates.
 
+## Experiment Tracking with MLflow
+MLflow is used to track training experiments, hyperparameters, and model artifacts within this project.
+
+1. **Install MLflow** (if not already installed):
+   ```bash
+   pip install mlflow
+   ```
+
+2. **Run the Jupyter Notebook with MLflow Tracking**:
+   - MLflow automatically logs model parameters, metrics, and artifacts during training in the notebook.
+   - To track experiments, simply execute the notebook cells. MLflow will start logging runs automatically.
+
+3. **View MLflow Experiment Logs**:
+   - Launch the MLflow UI to explore your experiment logs and model artifacts:
+     ```bash
+     mlflow ui
+     ```
+   - Open your browser and go to `http://localhost:5000` to access the MLflow dashboard.
+
+4. **Check MLflow Logs for Parameters and Metrics**:
+   - Within the MLflow UI, you can view detailed metrics such as accuracy and hyperparameters logged for each training run. The model can also be downloaded for deployment from the UI.
+
 ## Technologies Used
 - Python
 - TensorFlow/Keras for CNN model development and tuning
@@ -86,9 +105,11 @@ You can use Locust to test the performance of the FastAPI inference server:
 - Docker for containerization
 - Pytest for testing
 - Locust for performance testing
+- MLflow for experiment tracking
 
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests for any improvements.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+

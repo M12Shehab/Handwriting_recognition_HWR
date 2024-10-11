@@ -17,7 +17,7 @@ import io
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-MODEL_VERSION = "v1_0_0"
+MODEL_VERSION = "v1_0_1"
 model_directory = f'best_model_{MODEL_VERSION}.h5'
 # Try loading the model and log the outcome
 # Try loading the model and log the outcome
