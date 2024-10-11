@@ -1,3 +1,7 @@
+Here’s the updated README with a section for using Locust to test the server performance:
+
+---
+
 # MNIST Handwritten Digits Classification and Inference Server
 
 ## Overview
@@ -9,6 +13,7 @@ This project, developed by Mohammed Shehab, presents a neural network training p
 - [Installation](#installation)
 - [Usage](#usage)
 - [Model Deployment](#model-deployment)
+- [Performance Testing with Locust](#performance-testing-with-locust)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
@@ -58,6 +63,20 @@ This project, developed by Mohammed Shehab, presents a neural network training p
    ```
    This will start the FastAPI server, accessible at `http://localhost:8000`.
 
+## Performance Testing with Locust
+You can use Locust to test the performance of the FastAPI inference server:
+
+1. **Install Locust**:
+   ```bash
+   pip install locust
+   ```
+
+2. **Run the Locust Test**:
+   ```bash
+   locust -f tests/locustfile.py --host=http://localhost:8000
+   ```
+   Open your browser and go to `http://localhost:8089`. Enter the number of users and spawn rate to simulate load on the server. Locust will provide insights into response times, throughput, and error rates.
+
 ## Technologies Used
 - Python
 - TensorFlow/Keras for CNN model development and tuning
@@ -65,6 +84,7 @@ This project, developed by Mohammed Shehab, presents a neural network training p
 - FastAPI for serving the model as an inference server
 - Docker for containerization
 - Pytest for testing
+- Locust for performance testing
 
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests for any improvements.
