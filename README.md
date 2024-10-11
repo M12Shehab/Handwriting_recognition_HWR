@@ -73,7 +73,8 @@ You can use Locust to test the performance of the FastAPI inference server:
 
 2. **Run the Locust Test**:
    ```bash
-   locust -f tests/locustfile.py --host=http://localhost:8000
+   cd tests
+   locust -f locustfile.py --host=http://localhost:8000
    ```
    Open your browser and go to `http://localhost:8089`. Enter the number of users and spawn rate to simulate load on the server. Locust will provide insights into response times, throughput, and error rates.
 

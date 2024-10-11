@@ -7,12 +7,19 @@
 # -----------------------------------------------------------------------------
 from locust import HttpUser, TaskSet, task, between
 
+
 class InferenceTaskSet(TaskSet):
     @task
     def predict_digit(self):
-        # Replace this payload with an example image payload as expected by your model
-        payload = {"image": "<base64_encoded_image>"}
-        self.client.post("/predict", json=payload)
+        files = {
+            'file': ('test_image4kB.png', open('test_image4kB.png', 'rb'), 'image/png')
+        }
+        with self.client.post("/predict", files=files, catch_response=True) as response:
+            if response.status_code == 200:
+                print("Success:", response.json())
+            else:
+                print("Failed:", response.status_code, response.text)
+
 
 class InferenceUser(HttpUser):
     tasks = [InferenceTaskSet]
