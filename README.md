@@ -45,6 +45,7 @@ This project, developed by Mohammed Shehab, presents a neural network training p
    ```bash
    pytest tests
    ```
+   _Note: The tests are located in the `tests` directory. Also, you need to run the FastAPI server before running the tests._
 
 ## Model Deployment
 1. **Build the Docker Image**:
